@@ -1,0 +1,39 @@
+﻿@using ApprenticeAspNetMvc.Web.Models
+@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="mdc-typography--abb-heading mdc-typography--abb-cursor">Welcome</h1>
+<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<h4>User</h4>
+    <hr/>
+    <table style="width:100%">
+        <tr>
+            <th>Title</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Email</th>
+            <th>Username</th>
+
+        </tr>
+        @foreach (User user in Model)
+        {
+            <tr>
+                <td>@user.Title</td>
+
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.City</td>
+                <td>@user.Country</td>
+                <td>@user.Email</td>
+                <td>@user.UserName</td>
+
+                
+            </tr>
+        }
+    </table>

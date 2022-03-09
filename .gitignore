@@ -3,3 +3,7 @@
 ################################################################################
 
 /ApprenticeAspNetMvc.Web/bin/Debug/net6.0
+/ApprenticeAspNetMvc.Web/obj
+/UserStoryDB/bin/Debug
+/UserStoryDB/obj/Debug
+/.vs
