@@ -41,15 +41,7 @@ namespace ApprenticeAspNetMvc.Web.Controllers {
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
 
-           // HttpRequestMessage msg = new HttpRequestMessage
-           // {
-           //     Method = HttpMethod.Put,
-           //     RequestUri = new Uri(URL),
-           //     //Headers = new HttpRequestHeaders;
-           // };
-           // msg.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-           //await client.SendAsync(msg);
+          
 
 
             bool checkUser = false;
