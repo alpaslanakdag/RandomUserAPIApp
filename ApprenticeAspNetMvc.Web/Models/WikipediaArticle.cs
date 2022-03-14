@@ -16,7 +16,7 @@ namespace ApprenticeAspNetMvc.Web.Models
             DisplayTitle = wikipedia.Tfa.Displaytitle;
             PageId = (int)wikipedia.Tfa.Pageid;
             Description = wikipedia.Tfa.Description;
-            Url = wikipedia.Tfa.ContentUrls.Desktop.ToString();
+            Url = wikipedia.Tfa.ContentUrls.Desktop.Page.ToString();
             Extract = wikipedia.Tfa.Extract;
             CreateDate = DateTime.Now.Date;
 

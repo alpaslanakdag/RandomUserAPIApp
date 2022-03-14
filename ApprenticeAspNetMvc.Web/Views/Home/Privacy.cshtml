@@ -1,6 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+﻿@using ApprenticeAspNetMvc.Web.Models
+@model IEnumerable<WikipediaArticle>
+@{
+    ViewData["Title"] = "Wikipedia Article";
 }
 <h1 class="mdc-typography--abb-heading mdc-typography--abb-cursor">@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+
+
+@foreach (WikipediaArticle item in Model)
+{
+    <h3>@item.DisplayTitle</h3>
+
+    <div class="container-xl mt-4">
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="card-header">
+                    <p>@item.Extract</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+}

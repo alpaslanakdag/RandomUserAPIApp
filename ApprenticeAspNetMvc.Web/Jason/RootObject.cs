@@ -105,25 +105,13 @@ namespace ApprenticeAspNetMvc.Web.Jason
 
     public partial class Street
         {
-            
-            //[JsonIgnore]
-            //public long Number { get; set; }
 
-            //[JsonPropertyName("number")]
-            //public string NumberAsString
-            //{
 
-            //    get
-            //    {
-            //        return Number.ToString();
-            //    }
-            //    set
-            //    {
-            //        Number = long.Parse(value);
-            //    }
-            //}
+        [JsonPropertyName("number")]
+        public int Number { get; set; }
 
-            [JsonPropertyName("name")]
+
+        [JsonPropertyName("name")]
             public string Name { get; set; }
         }
 

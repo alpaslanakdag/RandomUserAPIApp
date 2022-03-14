@@ -3,6 +3,7 @@ using ApprenticeAspNetMvc.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -92,6 +93,8 @@ namespace ApprenticeAspNetMvc.Web.Controllers {
 
            await _context.SaveChangesAsync();
 
+            await UpdateUser();
+
 
             return View(await GetUser());
         }
@@ -118,8 +121,42 @@ namespace ApprenticeAspNetMvc.Web.Controllers {
             //}
         }
 
-        public IActionResult Privacy() {
-            return View();
+        public async Task UpdateUser()
+        {
+            ApprenticeAspNetMvcContext context = new ApprenticeAspNetMvcContext();
+
+             List<User> userForUpdate = new List<User>();
+            userForUpdate=  await context.Users.Where(u => u.Picture.Contains("med"))
+                .ToListAsync();
+            if (userForUpdate.Any())
+            {
+                foreach (var user in userForUpdate)
+                {
+                    var newPicture = user.Picture.Replace("med/", "");
+                    user.Picture = newPicture;
+                }
+
+            await context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<IActionResult> Privacy() {
+
+            ApprenticeAspNetMvcContext context = new ApprenticeAspNetMvcContext();
+
+            List<WikipediaArticle> wikiArticle =  await context.WikipediaArticles
+                .Where(u => u.CreateDate == DateTime.Now.Date).ToListAsync();
+
+            return View(wikiArticle);
+        }
+
+        public async Task<IActionResult> Users()
+        {
+            ApprenticeAspNetMvcContext context = new ApprenticeAspNetMvcContext();
+
+            List<User> users = await context.Users.ToListAsync();
+
+            return View(users);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

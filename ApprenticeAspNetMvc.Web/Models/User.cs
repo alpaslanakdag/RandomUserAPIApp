@@ -17,7 +17,7 @@ namespace ApprenticeAspNetMvc.Web.Models
             FirstName = result.Name.First;
             LastName = result.Name.Last;
             StreetName = result.Location.Street.Name;
-            //StreetNumber = result.Location.Street.Name;
+            StreetNumber = result.Location.Street.Number;
             City = result.Location.City;
             Country = result.Location.Country;
             PostCode = result.Location.Postcode;
@@ -28,8 +28,8 @@ namespace ApprenticeAspNetMvc.Web.Models
             UuId = result.Login.Uuid;
             DateOfBirth = result.Dob.Date.Date;
             PictureThumbnail = result.Picture.Thumbnail.ToString();
-            Picture = result.Picture.Medium.ToString();
-            CreateDate = DateTime.Now.Date;
+            Picture = result.Picture.Large.ToString();
+            CreateDate = DateTime.Now;
 
         }
 
